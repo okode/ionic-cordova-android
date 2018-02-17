@@ -3,7 +3,7 @@ FROM circleci/android:api-27-node8-alpha
 MAINTAINER Okode <info@okode.com>
 
 # Install Cordova and Ionic
-RUN sudo npm install -g ionic cordova
+RUN sudo npm install -g ionic cordova@7.1.0
 RUN cordova telemetry off
 RUN CI=true ionic config set -g daemon.updates false
 RUN ionic config set -g telemetry false
