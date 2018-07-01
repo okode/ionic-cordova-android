@@ -1,4 +1,4 @@
-FROM circleci/android:api-27-node8-alpha
+FROM circleci/android:api-28-node8-alpha
 
 MAINTAINER Okode <info@okode.com>
 
@@ -13,7 +13,7 @@ RUN ionic config set -g telemetry false
 RUN gem install fastlane -NV
 
 # Install Gradle
-ARG GRADLE_VERSION=4.6
+ARG GRADLE_VERSION=4.8.1
 RUN sudo curl https://downloads.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip > /tmp/gradle-$GRADLE_VERSION-bin.zip
 RUN sudo unzip /tmp/gradle-$GRADLE_VERSION-bin.zip -d /tmp && rm /tmp/gradle-$GRADLE_VERSION-bin.zip
 RUN sudo mv /tmp/gradle-$GRADLE_VERSION /opt/gradle
@@ -25,7 +25,7 @@ RUN sudo curl -L https://github.com/aktau/github-release/releases/download/v0.7.
 ENV PATH="/opt/github-release/bin/linux/amd64:${PATH}"
 
 # Install SonarQube Scanner
-ARG SONARQUBE_SCANNER_VERSION=3.0.3.778
+ARG SONARQUBE_SCANNER_VERSION=3.2.0.1227
 RUN sudo curl -L https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONARQUBE_SCANNER_VERSION.zip > /tmp/sonar-scanner-cli-$SONARQUBE_SCANNER_VERSION.zip
 RUN sudo unzip /tmp/sonar-scanner-cli-$SONARQUBE_SCANNER_VERSION.zip -d /tmp && rm /tmp/sonar-scanner-cli-$SONARQUBE_SCANNER_VERSION.zip
 RUN sudo mv /tmp/sonar-scanner-$SONARQUBE_SCANNER_VERSION /opt/sonar-scanner
