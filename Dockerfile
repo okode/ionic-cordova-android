@@ -4,7 +4,7 @@ MAINTAINER Okode <info@okode.com>
 
 # Install Cordova and Ionic
 RUN sudo npm update -g
-RUN sudo npm install -g ionic cordova@8.0.0
+RUN sudo npm install -g ionic cordova
 RUN cordova telemetry off
 RUN CI=true ionic config set -g daemon.updates false
 RUN ionic config set -g telemetry false
