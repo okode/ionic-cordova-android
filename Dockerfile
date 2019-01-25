@@ -2,6 +2,13 @@ FROM circleci/android:api-28-node8-alpha
 
 MAINTAINER Okode <info@okode.com>
 
+# Update Android SDK
+RUN yes | sdkmanager --licenses
+RUN yes | sdkmanager "build-tools;28.0.3"
+RUN yes | sdkmanager "platforms;android-28"
+RUN yes | sdkmanager "platform-tools"
+RUN yes | sdkmanager "tools"
+
 # Install Cordova and Ionic
 RUN sudo npm update -g
 RUN sudo npm install -g ionic cordova@7.1.0
